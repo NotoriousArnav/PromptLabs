@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     ## Plugins
     "allauth",
     "allauth.account",
+    "rest_framework",
 
     ## Project Apps
     "prompts"
@@ -67,6 +68,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PromptLabs.urls'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 TEMPLATES = [
     {
